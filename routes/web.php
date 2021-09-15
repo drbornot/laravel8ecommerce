@@ -58,6 +58,10 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/slider/add',\App\Http\Livewire\Admin\AdminAddHomeSliderComponent::class)->name('admin.add.homeslider');
     Route::get('/admin/slider/edit/{slide_id}',\App\Http\Livewire\Admin\AdminEditHomeSliderComponent::class)->name('admin.edit.homeslider');
 
+    Route::get('/admin/coupons', \App\Http\Livewire\Admin\AdminCouponComponent::class)->name('admin.coupons');
+    Route::get('/admin/coupon/add', \App\Http\Livewire\Admin\AdminAddCouponComponent::class)->name('admin.add.coupon');
+    Route::get('/admin/coupon/edit/{coupon_id}', \App\Http\Livewire\Admin\AdminEditCouponComponent::class)->name('admin.edit.coupon');
+
     Route::get('/admin/home-categories',\App\Http\Livewire\Admin\AdminHomeCategories::class)->name('admin.homecategories');
 
     Route::get('admin/sale',\App\Http\Livewire\Admin\AdminSaleComponent::class)->name('admin.sale');
