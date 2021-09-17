@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Events\ProductAddToCart;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
@@ -61,6 +62,7 @@ class ShopComponent extends Component
     {
         Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
         session()->flash('success_message','Item added in Cart');
+//        event(new ProductAddToCart($product_id));
         return redirect()->route('product.cart');
     }
 

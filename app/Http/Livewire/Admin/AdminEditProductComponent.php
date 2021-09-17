@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Events\Product\ProductUpdatedEvent;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
@@ -100,6 +101,7 @@ class AdminEditProductComponent extends Component
         }
         if (count($validation)) {
             $this->product->update($validation);
+//            event(new \App\Events\ProductUpdatedEvent($this->product->id));
             $this->resetErrorBag();
             session()->flash('message','Product has been updated successfully!');
         }

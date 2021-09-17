@@ -13,6 +13,7 @@ class AdminEditCouponComponent extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expiry_date;
 
     public $coupon_id;
 
@@ -22,7 +23,8 @@ class AdminEditCouponComponent extends Component
             'code' => ['required',Rule::unique('coupons')->ignore($this->coupon_id,'id')],
             'type' => ['required'],
             'value' => ['required','numeric'],
-            'cart_value' => ['required','numeric']
+            'cart_value' => ['required','numeric'],
+            'expiry_date' => ['required','date']
         ];
     }
 
@@ -45,6 +47,7 @@ class AdminEditCouponComponent extends Component
         $this->type = $model->type;
         $this->value = $model->value;
         $this->cart_value = $model->cart_value;
+        $this->expiry_date = $model->expiry_date;
     }
 
     public function store()
@@ -58,6 +61,7 @@ class AdminEditCouponComponent extends Component
             'type' => $this->type,
             'value' => $this->value,
             'cart_value' => $this->cart_value,
+            'expiry_date' => $this->expiry_date,
         ], $this->rules())->validate();
 
         if (count($validator)) {

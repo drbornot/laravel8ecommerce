@@ -285,6 +285,10 @@
 
 @section('custom_scripts')
     <script>
+
+
+
+
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
             start: [1,1000],

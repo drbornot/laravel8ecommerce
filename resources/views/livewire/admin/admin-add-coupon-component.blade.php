@@ -52,6 +52,13 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="expiry_date" class="col-md-4 control-label">Expiry Date</label>
+                            <div class="col-md-4" wire:key="input-name-2" wire:ignore>
+                                <input type="text" placeholder="Expiry Date" id="expiry_date" class="form-control input-md" wire:model="expiry_date">
+                                @error('expiry_date') <div class="error" style="color: red;">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="" class="col-md-4 control-label"></label>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -61,7 +68,19 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+@section('custom_scripts')
+    <script>
+        $(function () {
+            $('#expiry_date').datetimepicker({
+                format: 'Y-MM-DD'
+            }).on('dp.change', function (ev) {
+                var data = $('#expiry_date').val();
+                @this.set('expiry_date',data);
+            });
+        })
+    </script>
+@endsection
 

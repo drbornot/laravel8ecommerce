@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css" integrity="sha512-40vN6DdyQoxRJCw0klEUwZfTTlcwkOLKpP8K8125hy9iF4fi8gPpWZp60qKC6MYAFaond8yQds7cTMVU8eMbgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.tiny.cloud/1/zzom72uo88keqv2eiamf8rjl3mdx99m1yfntu4di45kfj2zn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @yield('custom_css')
     @livewireStyles
 </head>
@@ -483,5 +484,22 @@
 
 @livewireScripts
 @yield('custom_scripts')
+
+<script>
+    // window.addEventListener('DOMContentLoaded', function () {
+    //     Echo.channel('ecommerce')
+    //         .listen('ProductAddToCart', function (event) {
+    //             console.log('it worked!', event.productId);
+    //         });
+    //     Echo.channel('product_updated')
+    //         .listen('ProductUpdatedEvent', function (event) {
+    //             console.log('Product Updated!', event.productId);
+    //         });
+    //     Echo.channel('product_deleted')
+    //         .listen('ProductDeletedEvent', function (event) {
+    //             console.log('Product Deleted!', event.productId);
+    //         });
+    // })
+</script>
 </body>
 </html>

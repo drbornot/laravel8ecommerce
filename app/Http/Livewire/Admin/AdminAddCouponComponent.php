@@ -12,6 +12,7 @@ class AdminAddCouponComponent extends Component
     public $type;
     public $value;
     public $cart_value;
+    public $expiry_date;
 
     public function rules()
     {
@@ -19,7 +20,8 @@ class AdminAddCouponComponent extends Component
             'code' => ['required','unique:coupons'],
             'type' => ['required'],
             'value' => ['required','numeric'],
-            'cart_value' => ['required','numeric']
+            'cart_value' => ['required','numeric'],
+            'expiry_date' => ['required','date']
         ];
     }
 
@@ -41,7 +43,8 @@ class AdminAddCouponComponent extends Component
             'code' => $this->code,
             'type' => $this->type,
             'value' => $this->value,
-            'cart_value' => $this->cart_value
+            'cart_value' => $this->cart_value,
+            'expiry_date' => $this->expiry_date,
         ];
     }
 
@@ -61,6 +64,7 @@ class AdminAddCouponComponent extends Component
         $this->type = null;
         $this->value = null;
         $this->cart_value = null;
+        $this->expiry_date = null;
     }
 
 }
